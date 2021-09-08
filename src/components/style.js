@@ -1,18 +1,41 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-    font-family: 'Lexend Deca', sans-serif;
+    padding: 0px 17px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: ${props => props.background};
+    margin-top: 70px;
+    height: calc(100vh - 140px);
+
+    h2{
+        margin-top: 28px;
+        font-size: 18px;
+        line-height: 22px;
+        color: #666666;
+    }
 `;
 
-const Logo = styled.div`
-    font-family: 'Playball', cursive;
+const PageTitle = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+    font-size: 23px;
     color: #126BA5;
+`
+
+const CreateHabit = styled.div`
+    align-self: flex-end;
+    width: 40px;
+    height: 35px;
+    background: #52B6FF;
+    font-size: 27px;
     text-align: center;
-    font-size: 69px;
-`;
+    color: #FFFFFF;
+    border-radius: 4.6px;
+`
 
 const LoginButton = styled.div`
     margin: 6px 0px 25px 0px;
@@ -45,11 +68,13 @@ const LoginInput = styled.input`
     width: 303px;
     height: 45px;
 `;
+//passar para css grid
 
 export {
     Container,
     LoginButton,
     LoginInput,
-    Logo,
-    LoginSignInChanger
+    LoginSignInChanger,
+    PageTitle,
+    CreateHabit
 }

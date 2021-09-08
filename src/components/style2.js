@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Menu = styled.div`
+const NavBar = styled.div`
     position: fixed;
     top: 0px;
     left: 0px;
@@ -16,7 +16,6 @@ const Menu = styled.div`
         width: 50px;
         height: 50px;
         border-radius: 100px;
-        margin-right: 36px
     }
     p{
         font-family: 'Playball', cursive;
@@ -25,6 +24,25 @@ const Menu = styled.div`
     }
 `
 
+const Footer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 70px;
+    padding: 0px 35px;
+    position: fixed;
+    background: #FFFFFF;
+    bottom: 0px;
+    left: 0px;
+    p{
+        font-size: 18px;
+        text-align: center;
+        color: #52B6FF;
+    }
+`
+
 export {
-    Menu
+    NavBar, 
+    Footer
 }

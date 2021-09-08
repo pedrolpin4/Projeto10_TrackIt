@@ -43,26 +43,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-::placeholder {
-    font-family: 'Lexend Deca', sans-serif;
-    color: #dbdbdb;
-    font-size: 29px;
-}
-
-:-ms-input-placeholder{
-    font-family: 'Lexend Deca', sans-serif;
-    color: #dbdbdb;
-    font-size: 19px;
-    opacity: 1;
-}
-
-::-ms-input-placeholder{
-    font-family: 'Lexend Deca', sans-serif;
-    color: #dbdbdb;
-    font-size: 19px;
-}
-
-a{
-	text-decoration: none;
-}

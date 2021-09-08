@@ -3,15 +3,13 @@ import {
     Container,
     LoginButton,
     LoginInput,
-    Logo,
     LoginSignInChanger
-} from "./style"
+} from "./style";
+import Logo from "../shared/Logo";
 
 const SignInPage = () => (
-    <Container>
-        <Logo>
-            TrackIt
-        </Logo>
+    <Container background = "#FFFFFF">
+        <Logo />
         <LoginInput margin = "32px" placeholder = "email" />
         <LoginInput placeholder = "senha"/>
         <LoginInput placeholder = "nome" />

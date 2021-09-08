@@ -1,6 +1,7 @@
 import LoginPage from "./LoginPage";
 import SignInPage from "./SignInPage";
 import HabitsPage from "./HabitsPage";
+import GlobalStyle from "../shared/GlobalStyle";
 import { 
   BrowserRouter as Router,
   Route,
@@ -10,17 +11,18 @@ import {
  const App = () => {
   return (
      <Router>
-      <Switch>
-        <Route path = "/" exact>
-          <LoginPage />
-        </Route>
-        <Route path = "/cadastro" exact>
-          <SignInPage />
-        </Route>
-        <Route path = "/habitos" exact>
-          <HabitsPage />
-        </Route>
-      </Switch>
+      <GlobalStyle />
+        <Switch>
+          <Route path = "/" exact>
+            <LoginPage />
+          </Route>
+          <Route path = "/cadastro" exact>
+            <SignInPage />
+          </Route>
+          <Route path = "/habitos" exact>
+            <HabitsPage />
+          </Route>
+        </Switch>
     </Router>
   )
 }
