@@ -18,16 +18,18 @@ const HabitsPage = () => (
     <Container background = "#E5E5E5">
         <PageTitle>
             <h1>Meus hábitos</h1>
-            <Link to = "/">
-                <CreateHabit> + </CreateHabit>
-            </Link>
+            <CreateHabit onClick = {() => console.log("oiii")}> + </CreateHabit>
         </PageTitle>
         <h2>Você não tem nenhum hábito cadastrado ainda. 
             Adicione um hábito para começar a trackear!</h2>
     </Container>
     <Footer>
-        <p>Hábitos</p>
-        <p>Histórico</p>
+        <Link to = "/habitos">
+            <p>Hábitos</p>
+        </Link>
+        <Link to = "/historico">
+            <p>Histórico</p>
+        </Link>
     </Footer>
     </>
 )

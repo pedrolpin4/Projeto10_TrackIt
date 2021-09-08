@@ -19,15 +19,13 @@ const Container = styled.div`
 
 const PageTitle = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-top: 28px;
     font-size: 23px;
     color: #126BA5;
 `
 
 const CreateHabit = styled.div`
-    align-self: flex-end;
     width: 40px;
     height: 35px;
     background: #52B6FF;
@@ -35,6 +33,7 @@ const CreateHabit = styled.div`
     text-align: center;
     color: #FFFFFF;
     border-radius: 4.6px;
+    cursor: pointer;
 `
 
 const LoginButton = styled.div`
