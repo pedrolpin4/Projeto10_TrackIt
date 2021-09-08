@@ -6,12 +6,19 @@ import {
     LoginSignInChanger
 } from "./style";
 import Logo from "../shared/Logo";
+import { useState } from "react";
 
-const LoginPage = () => (
+const LoginPage = () => {   
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    return (
     <Container background = "#FFFFFF">
         <Logo />
-        <LoginInput margin = "32px" placeholder = "email" />
-        <LoginInput placeholder = "senha"/>
+        <LoginInput margin = "32px" placeholder = "email" 
+        value = {email} onChange = {e => setEmail(e.target.value)}/>
+        <LoginInput placeholder = "senha" type = "password"
+         value = {password} onChange = {e => setPassword(e.target.value)}/>
         <Link to = "/habitos">
             <LoginButton>
                 Entrar
@@ -23,6 +30,5 @@ const LoginPage = () => (
             </LoginSignInChanger>
         </Link>      
     </Container>
-)
-
+)}
 export default LoginPage

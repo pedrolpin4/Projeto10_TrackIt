@@ -1,5 +1,5 @@
 import LoginPage from "./LoginPage";
-import SignInPage from "./SignInPage";
+import SignUpPage from "./SignUpPage";
 import HabitsPage from "./HabitsPage";
 import GlobalStyle from "../shared/GlobalStyle";
 import { 
@@ -17,7 +17,7 @@ import {
             <LoginPage />
           </Route>
           <Route path = "/cadastro" exact>
-            <SignInPage />
+            <SignUpPage />
           </Route>
           <Route path = "/habitos" exact>
             <HabitsPage />
