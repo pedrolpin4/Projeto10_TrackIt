@@ -62,3 +62,7 @@ table {
     color: #dbdbdb;
     font-size: 19px;
 }
+
+a{
+	text-decoration: none;
+}

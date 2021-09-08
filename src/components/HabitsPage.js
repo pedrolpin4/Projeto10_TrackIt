@@ -3,9 +3,9 @@ import{
 } from "./style2"
 
 const HabitsPage = () => (
-    <Menu image = "https://veja.abril.com.br/wp-content/uploads/2016/05/alx_guerra-dos-tronos-sexta-20160211-024_original-e1539650842412.jpeg">
+    <Menu>
         <p>TrackIt</p>
-        <img src = {props => props.image}/>
+        <img src = "https://render.fineartamerica.com/images/rendered/default/flat/round-beach-towel/images-medium-5/tyrion-lannister-peter-dinklage-game-of-thrones-artwork-2-sheraz-a.jpg?&targetx=0&targety=-207&imagewidth=788&imageheight=1202&modelwidth=788&modelheight=788&backgroundcolor=1A140D&orientation=0" alt = ""/>
     </Menu>
 )
 

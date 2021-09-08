@@ -6,7 +6,6 @@ import {
   Route,
   Switch
  } from "react-router-dom";
-import HabitsPage from "./HabitsPage";
 
  const App = () => {
   return (
