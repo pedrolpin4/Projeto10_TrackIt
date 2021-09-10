@@ -8,11 +8,14 @@ import {
 import NavBar from "../shared/NavBar"
 import TodaysHabit from "./TodaysHabit"
 import 'dayjs/locale/es'
+import { useState } from "react"
 
 const TodaysPage = () => {
     const dayjs = require("dayjs")
     const weekday = require('dayjs/plugin/weekday')
     dayjs.extend(weekday)
+    const [percentage, setPercentage] = useState(0)
+    const [habits, setHabits] = useState([])
 
     const localeDay = (dayNumber) => {
         switch (dayNumber) {
@@ -41,10 +44,24 @@ const TodaysPage = () => {
                 {localeDay(dayjs().weekday())}, {dayjs().format(`DD/MM`)}
             </PageTitle>
             <HabitsPercentage>
-                Nenhum hábito concluído ainda
+                { 
+                percentage
+                ?
+                `${percentage}% dos hábitos concluídos`
+                :
+                "Nenhum hábito concluído ainda"
+                }
             </HabitsPercentage>
-            <HabitsList margin = "28px">
-                <TodaysHabit />
+            <HabitsList margin = {habits.length ? "28px" : "0px"}>
+                { 
+                habits.length
+                ?
+                habits.map(habit => <TodaysHabit habit = {habit}/>)
+                :
+                <h2>
+                    Você não tem nenhum hábito cadastrado para hoje. Adicione um hábito para começar a trackear!
+                </h2>
+                }
             </HabitsList>
         </Container>
         <Footer />

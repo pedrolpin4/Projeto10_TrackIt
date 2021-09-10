@@ -11,6 +11,7 @@ const LoginButton = styled.div`
     height: 45px;
     background: #52B6FF;
     border-radius: 5px;
+    opacity: ${props => props.opacity};
 `
 
 const LoginSignInChanger = styled.p`
