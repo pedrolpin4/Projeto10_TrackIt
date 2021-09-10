@@ -1,12 +1,13 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-
+import ProgressBar from "./ProgressBar"
 const Footer = () => {
     return(
         <FooterStyle >
             <Link to = "/habitos">
                 <p>Hábitos</p>
             </Link>
+            <ProgressBar />
             <Link to = "/historico">
                 <p>Histórico</p>
             </Link>
