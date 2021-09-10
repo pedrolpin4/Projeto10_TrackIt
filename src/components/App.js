@@ -1,6 +1,7 @@
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import HabitsPage from "./HabitsPage";
+import TrackingRecordPage from "./TrackingRecordPage"
 import { GlobalStyle } from "../shared/GlobalStyle";
 import { 
   BrowserRouter as Router,
@@ -17,15 +18,10 @@ import { useState } from "react";
       <GlobalStyle />
       <UserContext.Provider value = {{user, setUser}}>
         <Switch>
-          <Route path = "/" exact>
-            <LoginPage />
-          </Route>
-          <Route path = "/cadastro" exact>
-            <SignUpPage />
-          </Route>
-          <Route path = "/habitos" exact>
-            <HabitsPage />
-          </Route>
+          <Route path = "/" exact component = {LoginPage} />
+          <Route path = "/cadastro" exact component = {SignUpPage} />
+          <Route path = "/habitos" exact component = {HabitsPage} />
+          <Route path = "/historico" exact component = {TrackingRecordPage} />
         </Switch>
       </UserContext.Provider>
     </Router>

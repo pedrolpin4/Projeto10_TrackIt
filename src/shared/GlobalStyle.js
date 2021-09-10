@@ -51,7 +51,18 @@ const Container = styled.div`
     }
 `;
 
+const PageTitle = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    font-size: 23px;
+    color: #126BA5;
+`
+
 export {
     GlobalStyle,
-    Container
+    Container,
+    PageTitle
 }

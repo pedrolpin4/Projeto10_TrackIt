@@ -1,5 +1,6 @@
 import {
     Container,
+    PageTitle
 } from "../shared/GlobalStyle"
 import styled from "styled-components"
 import NavBar from "../shared/NavBar"
@@ -34,12 +35,12 @@ const HabitsPage = () => {
     <>
         <NavBar />
         <Container background = "#E5E5E5">
-            <HabitsPageTitle>
+            <PageTitle>
                 <h1>Meus hábitos</h1>
                 <CreateHabit onClick = {() => console.log("oiii")}>
                     + 
                 </CreateHabit>
-            </HabitsPageTitle>
+            </PageTitle>
             { habits.length ? habits.map(habit => <h1>Oi</h1>)
                                 :
                 <h2>Você não tem nenhum hábito cadastrado ainda. 
@@ -50,16 +51,6 @@ const HabitsPage = () => {
     </>
     )
 }
-
-const HabitsPageTitle = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 28px;
-    font-size: 23px;
-    color: #126BA5;
-`
 
 const CreateHabit = styled.div`
     width: 40px;
