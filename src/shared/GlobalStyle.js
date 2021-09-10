@@ -1,3 +1,4 @@
+import styled  from "styled-components";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -32,4 +33,25 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 `
-export default GlobalStyle
+
+const Container = styled.div`
+    padding: 0px 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: ${props => props.background};
+    margin-top: 70px;
+    height: calc(100vh - 140px);
+
+    h2{
+        margin-top: 28px;
+        font-size: 18px;
+        line-height: 22px;
+        color: #666666;
+    }
+`;
+
+export {
+    GlobalStyle,
+    Container
+}

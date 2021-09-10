@@ -1,10 +1,10 @@
 import { Link, useHistory } from "react-router-dom";
 import {
-    Container,
     LoginButton,
     LoginInput,
     LoginSignInChanger
-} from "./style";
+} from "./RegistrationStyles";
+import { Container } from "../shared/GlobalStyle"
 import { postLoginInfo } from "../service/trackItService"
 import Logo from "../shared/Logo";
 import { useState, useContext } from "react";

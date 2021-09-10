@@ -10,7 +10,14 @@ const postLoginInfo = (object) => {
     const promise = axios.post(`${BASE_URL}/auth/login`, object)
     return promise
 }
+
+const getUserHabits = (config) => {
+    const promise = axios.get(`${BASE_URL}/habits`, config)
+    return promise
+}
+
 export {
     postSignUpInfo,
-    postLoginInfo
+    postLoginInfo,
+    getUserHabits
 }

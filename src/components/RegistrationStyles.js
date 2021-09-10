@@ -1,22 +1,5 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-    padding: 0px 17px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: ${props => props.background};
-    margin-top: 70px;
-    height: calc(100vh - 140px);
-
-    h2{
-        margin-top: 28px;
-        font-size: 18px;
-        line-height: 22px;
-        color: #666666;
-    }
-`;
-
 const LoginButton = styled.div`
     margin: 6px 0px 25px 0px;
     display: flex;
@@ -50,7 +33,6 @@ const LoginInput = styled.input`
 `;
 
 export {
-    Container,
     LoginButton,
     LoginInput,
     LoginSignInChanger,

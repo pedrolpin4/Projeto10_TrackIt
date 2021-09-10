@@ -1,7 +1,7 @@
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import HabitsPage from "./HabitsPage";
-import GlobalStyle from "../shared/GlobalStyle";
+import { GlobalStyle } from "../shared/GlobalStyle";
 import { 
   BrowserRouter as Router,
   Route,

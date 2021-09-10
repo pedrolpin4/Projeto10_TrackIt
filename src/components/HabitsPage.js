@@ -1,22 +1,50 @@
 import {
     Container,
-} from "./style"
+} from "../shared/GlobalStyle"
 import styled from "styled-components"
 import NavBar from "../shared/NavBar"
 import Footer from "../shared/Footer"
+import { useEffect, useContext, useState } from "react"
+import { getUserHabits } from "../service/trackItService"
+import UserContext from "../contexts/UserContext"
 
 
 const HabitsPage = () => {
+    const {
+        user
+    } = useContext(UserContext)
+
+    const [habits, setHabits] = useState([])
+
+    const config = {
+        headers:{
+            "Authorization" : `Bearer ${user.token}`
+        }
+    }
+
+    const gettingHabits = (config) => {
+        getUserHabits(config)
+            .then(res => setHabits(res.data))
+            .catch(err => alert(err.response.data))
+    }
+
+    useEffect(() => gettingHabits(config), [])
+    
     return (
     <>
         <NavBar />
         <Container background = "#E5E5E5">
             <HabitsPageTitle>
                 <h1>Meus hábitos</h1>
-                <CreateHabit onClick = {() => console.log("oiii")}> + </CreateHabit>
+                <CreateHabit onClick = {() => console.log("oiii")}>
+                    + 
+                </CreateHabit>
             </HabitsPageTitle>
-            <h2>Você não tem nenhum hábito cadastrado ainda. 
+            { habits.length ? habits.map(habit => <h1>Oi</h1>)
+                                :
+                <h2>Você não tem nenhum hábito cadastrado ainda. 
                 Adicione um hábito para começar a trackear!</h2>
+            }
         </Container>
         <Footer />
     </>
