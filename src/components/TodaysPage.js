@@ -1,14 +1,17 @@
 import styled from "styled-components"
-import Footer from "../shared/Footer"
+import { useContext, useEffect, useState } from "react"
 import { 
     Container, 
     PageTitle, 
     HabitsList 
 } from "../shared/GlobalStyle"
+import {
+    getTodaysHabits
+} from '../service/trackItService'
+import Footer from "../shared/Footer"
 import NavBar from "../shared/NavBar"
 import TodaysHabit from "./TodaysHabit"
-import 'dayjs/locale/es'
-import { useState } from "react"
+import UserContext from "../contexts/UserContext"
 
 const TodaysPage = () => {
     const dayjs = require("dayjs")
@@ -16,6 +19,22 @@ const TodaysPage = () => {
     dayjs.extend(weekday)
     const [percentage, setPercentage] = useState(0)
     const [habits, setHabits] = useState([])
+    const {
+        user
+    } = useContext(UserContext)
+    const config = {
+        headers:{
+            "Authorization": `Bearer ${user.token}`
+        }
+    }
+
+    const gettingTodaysHabits = (config) => {
+        getTodaysHabits(config)
+            .then(res => setHabits(res.data))
+            .catch(err => alert(err.response.data))
+    }
+
+    useEffect(() => gettingTodaysHabits(config) , [])
 
     const localeDay = (dayNumber) => {
         switch (dayNumber) {

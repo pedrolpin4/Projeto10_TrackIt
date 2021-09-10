@@ -16,14 +16,15 @@ const SignUpPage = () => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
-    const[isClicked, setIsClicked] = useState(false)
-    const history = useHistory()
     const userInfo = {
         email,
         password,
         name,
         image
     }
+    const[isClicked, setIsClicked] = useState(false)
+    const history = useHistory()
+
 
     const SigningUp = (object) => {
         setIsClicked(true)
@@ -55,7 +56,7 @@ const SignUpPage = () => {
         />
         
         <LoginButton 
-            onClick = {isClicked ? null : () => SigningUp({email, password})}
+            onClick = {isClicked ? null : () => SigningUp(userInfo)}
             opacity = {isClicked ? "0.7" : "1"}
         >
             {

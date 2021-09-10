@@ -16,8 +16,14 @@ const getUserHabits = (config) => {
     return promise
 }
 
+const getTodaysHabits = (config) => {
+    const promise = axios.get(`${BASE_URL}/habits/today`, config)
+    return promise
+}
+
 export {
     postSignUpInfo,
     postLoginInfo,
-    getUserHabits
+    getUserHabits,
+    getTodaysHabits
 }
