@@ -6,8 +6,10 @@ const Footer = () => {
         <FooterStyle >
             <Link to = "/habitos">
                 <p>Hábitos</p>
+            </Link>            
+            <Link to = "/hoje">
+                <ProgressBar />
             </Link>
-            <ProgressBar />
             <Link to = "/historico">
                 <p>Histórico</p>
             </Link>
