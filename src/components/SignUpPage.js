@@ -24,13 +24,13 @@ const SignUpPage = () => {
         image
     }
 
-    const postInfo = (object) => {
+    const SigningUp = (object) => {
         postSignUpInfo(object)
         .then(res => {
             console.log(res.data);
              history.push("/")
             })
-        .catch(res => console.log)
+        .catch(err => alert(`${err.response.data.details}`))
     }
 
     return (
@@ -49,7 +49,7 @@ const SignUpPage = () => {
             value = {image} onChange = {e => setImage(e.target.value)} 
         />
         
-        <LoginButton onClick = {() => postInfo(userInfo)}>
+        <LoginButton onClick = {() => SigningUp(userInfo)}>
             Cadastrar
         </LoginButton>
         

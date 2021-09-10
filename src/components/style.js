@@ -19,7 +19,9 @@ const Container = styled.div`
 
 const PageTitle = styled.div`
     display: flex;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 28px;
     font-size: 23px;
     color: #126BA5;
@@ -67,7 +69,6 @@ const LoginInput = styled.input`
     width: 303px;
     height: 45px;
 `;
-//passar para css grid
 
 export {
     Container,

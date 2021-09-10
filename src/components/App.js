@@ -7,11 +7,15 @@ import {
   Route,
   Switch
  } from "react-router-dom";
+ import UserContext from "../contexts/UserContext"
+import { useState } from "react";
 
  const App = () => {
+   const [user, setUser] = useState({})
   return (
      <Router>
       <GlobalStyle />
+      <UserContext.Provider value = {{user, setUser}}>
         <Switch>
           <Route path = "/" exact>
             <LoginPage />
@@ -23,6 +27,7 @@ import {
             <HabitsPage />
           </Route>
         </Switch>
+      </UserContext.Provider>
     </Router>
   )
 }

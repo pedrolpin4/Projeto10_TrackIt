@@ -9,7 +9,11 @@ import {
     CreateHabit
 } from "./style"
 
-const HabitsPage = () => (
+const HabitsPage = () => {
+    
+    
+    
+    return (
     <>
     <NavBar>
         <p>TrackIt</p>
@@ -32,6 +36,7 @@ const HabitsPage = () => (
         </Link>
     </Footer>
     </>
-)
+    )
+}
 
 export default HabitsPage

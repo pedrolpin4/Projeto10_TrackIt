@@ -6,6 +6,11 @@ const postSignUpInfo = (object) => {
     return promise
 }
 
+const postLoginInfo = (object) => {
+    const promise = axios.post(`${BASE_URL}/auth/login`, object)
+    return promise
+}
 export {
-    postSignUpInfo
+    postSignUpInfo,
+    postLoginInfo
 }
