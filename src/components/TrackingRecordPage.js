@@ -7,7 +7,7 @@ import NavBar from "../shared/NavBar"
 const TrackingRecordPage = () => (
     <>
         <NavBar />
-        <Container>
+        <Container background = "#E5E5E5">
             <PageTitle>
                 Histórico
             </PageTitle>

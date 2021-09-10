@@ -22,7 +22,7 @@ const LoginPage = () => {
         postLoginInfo(object)
             .then(res => {
                 setUser(res.data)
-                history.push("/habitos")
+                history.push("/hoje")
             })
             .catch(err => alert(`${err.response.data.details}`))
     }

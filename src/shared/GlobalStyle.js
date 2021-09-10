@@ -61,8 +61,15 @@ const PageTitle = styled.div`
     color: #126BA5;
 `
 
+const HabitsList = styled.div`
+    margin-top: ${props => props.margin};
+    display: grid;
+    gap: 10px 0px;
+`
+
 export {
     GlobalStyle,
     Container,
-    PageTitle
+    PageTitle,
+    HabitsList
 }

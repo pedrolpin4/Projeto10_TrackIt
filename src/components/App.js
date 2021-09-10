@@ -1,6 +1,7 @@
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import HabitsPage from "./HabitsPage";
+import TodaysPage from "./TodaysPage";
 import TrackingRecordPage from "./TrackingRecordPage"
 import { GlobalStyle } from "../shared/GlobalStyle";
 import { 
@@ -11,10 +12,10 @@ import {
  import UserContext from "../contexts/UserContext"
 import { useState } from "react";
 
- const App = () => {
+const App = () => {
    const [user, setUser] = useState({})
   return (
-     <Router>
+    <Router>
       <GlobalStyle />
       <UserContext.Provider value = {{user, setUser}}>
         <Switch>
@@ -22,6 +23,7 @@ import { useState } from "react";
           <Route path = "/cadastro" exact component = {SignUpPage} />
           <Route path = "/habitos" exact component = {HabitsPage} />
           <Route path = "/historico" exact component = {TrackingRecordPage} />
+          <Route path = "/hoje" exact component = {TodaysPage} />
         </Switch>
       </UserContext.Provider>
     </Router>
