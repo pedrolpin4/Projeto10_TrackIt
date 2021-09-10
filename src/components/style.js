@@ -17,27 +17,6 @@ const Container = styled.div`
     }
 `;
 
-const PageTitle = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 28px;
-    font-size: 23px;
-    color: #126BA5;
-`
-
-const CreateHabit = styled.div`
-    width: 40px;
-    height: 35px;
-    background: #52B6FF;
-    font-size: 27px;
-    text-align: center;
-    color: #FFFFFF;
-    border-radius: 4.6px;
-    cursor: pointer;
-`
-
 const LoginButton = styled.div`
     margin: 6px 0px 25px 0px;
     display: flex;
@@ -75,6 +54,4 @@ export {
     LoginButton,
     LoginInput,
     LoginSignInChanger,
-    PageTitle,
-    CreateHabit
 }

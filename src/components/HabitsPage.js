@@ -1,42 +1,48 @@
-import{
-    NavBar,
-    Footer
-} from "./style2"
-import { Link } from 'react-router-dom'
 import {
     Container,
-    PageTitle,
-    CreateHabit
 } from "./style"
+import styled from "styled-components"
+import NavBar from "../shared/NavBar"
+import Footer from "../shared/Footer"
+
 
 const HabitsPage = () => {
-    
-    
-    
     return (
     <>
-    <NavBar>
-        <p>TrackIt</p>
-        <img src = "https://render.fineartamerica.com/images/rendered/default/flat/round-beach-towel/images-medium-5/tyrion-lannister-peter-dinklage-game-of-thrones-artwork-2-sheraz-a.jpg?&targetx=0&targety=-207&imagewidth=788&imageheight=1202&modelwidth=788&modelheight=788&backgroundcolor=1A140D&orientation=0" alt = ""/>
-    </NavBar>
-    <Container background = "#E5E5E5">
-        <PageTitle>
-            <h1>Meus hábitos</h1>
-            <CreateHabit onClick = {() => console.log("oiii")}> + </CreateHabit>
-        </PageTitle>
-        <h2>Você não tem nenhum hábito cadastrado ainda. 
-            Adicione um hábito para começar a trackear!</h2>
-    </Container>
-    <Footer>
-        <Link to = "/habitos">
-            <p>Hábitos</p>
-        </Link>
-        <Link to = "/historico">
-            <p>Histórico</p>
-        </Link>
-    </Footer>
+        <NavBar />
+        <Container background = "#E5E5E5">
+            <HabitsPageTitle>
+                <h1>Meus hábitos</h1>
+                <CreateHabit onClick = {() => console.log("oiii")}> + </CreateHabit>
+            </HabitsPageTitle>
+            <h2>Você não tem nenhum hábito cadastrado ainda. 
+                Adicione um hábito para começar a trackear!</h2>
+        </Container>
+        <Footer />
     </>
     )
 }
+
+const HabitsPageTitle = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    font-size: 23px;
+    color: #126BA5;
+`
+
+const CreateHabit = styled.div`
+    width: 40px;
+    height: 35px;
+    background: #52B6FF;
+    font-size: 27px;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 4.6px;
+    cursor: pointer;
+`
+
 
 export default HabitsPage
