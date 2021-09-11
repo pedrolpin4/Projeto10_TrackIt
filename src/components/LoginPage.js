@@ -1,7 +1,6 @@
 import { Link, useHistory } from "react-router-dom";
 import {
     LoginButton,
-    LoginInput,
     LoginSignInChanger
 } from "./RegistrationStyles";
 import { Container } from "../shared/GlobalStyle"
@@ -37,9 +36,9 @@ const LoginPage = () => {
     return (
     <Container background = "#FFFFFF">
         <Logo />
-        <LoginInput margin = "32px" placeholder = "email" 
+        <input margin = "32px" placeholder = "email" 
         value = {email} onChange = {e => setEmail(e.target.value)}/>
-        <LoginInput placeholder = "senha" type = "password"
+        <input placeholder = "senha" type = "password"
          value = {password} onChange = {e => setPassword(e.target.value)}/>
         <LoginButton 
             onClick = {isClicked ? null : () => LoggingIn({email, password})}

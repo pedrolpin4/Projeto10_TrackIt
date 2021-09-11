@@ -21,9 +21,28 @@ const getTodaysHabits = (config) => {
     return promise
 }
 
+const finishTodaysHabit = (config, id) => {
+    const promise = axios.post(`${BASE_URL}/habits/${id}/check`, config)
+    return promise
+}
+
+const undoTodaysHabit = (config, id) => {
+    const promise = axios.post(`${BASE_URL}/habits/${id}/uncheck`, config)
+    return promise 
+}
+
+const createHabit = (object, config) =>{
+    const promise = axios.post(`${BASE_URL}/habits`, object, config)
+    return promise
+}
+
+
 export {
     postSignUpInfo,
     postLoginInfo,
     getUserHabits,
-    getTodaysHabits
+    getTodaysHabits,
+    finishTodaysHabit,
+    undoTodaysHabit,
+    createHabit
 }

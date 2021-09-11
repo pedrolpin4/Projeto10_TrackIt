@@ -21,6 +21,7 @@ const FooterStyle = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
     width: 100vw;
     height: 70px;
     padding: 0px 35px;

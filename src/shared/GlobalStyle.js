@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
 
     body{
         font-family: 'Lexend Deca', sans-serif;
+        overflow-y: visible;
     }
 
     *{
@@ -31,6 +32,13 @@ const GlobalStyle = createGlobalStyle`
             font-size: 19px;
             opacity: 1;
         }
+        margin-bottom: 6px;
+        padding: 10px;
+        background: #FFFFFF;
+        border: 1px solid #D4D4D4;
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 45px;
     }
 `
 
@@ -39,10 +47,10 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
     background-color: ${props => props.background};
-    margin-top: 70px;
-    height: calc(100vh - 140px);
-
+    margin: 70px 0px 80px 0px;
+    height: 100vh;
     h2{
         margin-top: 28px;
         font-size: 18px;

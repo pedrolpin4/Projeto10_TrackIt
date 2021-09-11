@@ -2,7 +2,6 @@ import { Link, useHistory} from "react-router-dom";
 import { useState } from "react";
 import {
     LoginButton,
-    LoginInput,
     LoginSignInChanger
 } from "./RegistrationStyles";
 import { Container } from "../shared/GlobalStyle"
@@ -25,7 +24,6 @@ const SignUpPage = () => {
     const[isClicked, setIsClicked] = useState(false)
     const history = useHistory()
 
-
     const SigningUp = (object) => {
         setIsClicked(true)
         postSignUpInfo(object)
@@ -42,16 +40,16 @@ const SignUpPage = () => {
     return (
     <Container background = "#FFFFFF">
         <Logo />
-        <LoginInput margin = "32px" placeholder = "email" 
+        <input margin = "32px" placeholder = "email" 
             value = {email} onChange = {e => setEmail(e.target.value)} 
         />
-        <LoginInput placeholder = "senha" type = "password"
+        <input placeholder = "senha" type = "password"
             value = {password} onChange = {e => setPassword(e.target.value)} 
         />
-        <LoginInput placeholder = "nome" 
+        <input placeholder = "nome" 
             value = {name} onChange = {e => setName(e.target.value)} 
         />
-        <LoginInput placeholder = "foto" 
+        <input placeholder = "foto" 
             value = {image} onChange = {e => setImage(e.target.value)} 
         />
         

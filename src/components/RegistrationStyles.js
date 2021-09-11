@@ -21,20 +21,7 @@ const LoginSignInChanger = styled.p`
     color: #52B6FF;
 `
 
-const LoginInput = styled.input`
-    margin-top: ${props => props.margin ? props.margin : "0px"};
-    margin-bottom: 6px;
-    padding: 10px;
-    background: #FFFFFF;
-    border: 1px solid #D4D4D4;
-    box-sizing: border-box;
-    border-radius: 5px;
-    width: 303px;
-    height: 45px;
-`;
-
 export {
     LoginButton,
-    LoginInput,
     LoginSignInChanger,
 }

@@ -16,7 +16,8 @@ const NavBar = () => {
 }
 
 const NavBarStyle = styled.div`
- position: fixed;
+    position: fixed;
+    z-index:1;
     top: 0px;
     left: 0px;
     width: 100vw;
