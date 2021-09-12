@@ -36,6 +36,11 @@ const createHabit = (object, config) =>{
     return promise
 }
 
+const deleteHabit = (id, config) => {
+    const promise = axios.delete(`${BASE_URL}/habits/${id}`, config)
+    return promise
+}
+
 
 export {
     postSignUpInfo,
@@ -44,5 +49,6 @@ export {
     getTodaysHabits,
     finishTodaysHabit,
     undoTodaysHabit,
-    createHabit
+    createHabit,
+    deleteHabit
 }

@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         border-radius: 5px;
         height: 45px;
+        width: 303px;
     }
 `
 

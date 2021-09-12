@@ -1,26 +1,29 @@
 import styled from "styled-components";
 
-const Habit = ({habit}) => (
-    <HabitContainer>
-        <div>
-            <HabitTitle>
-                {habit.name}
-            </HabitTitle>
-            <WeekdaySelector>
-                <div>D</div>
-                <div>S</div>
-                <div>T</div>
-                <div>Q</div>
-                <div>Q</div>
-                <div>S</div>
-                <div>S</div>
-            </WeekdaySelector>
-        </div>
-        <ion-icon name = "trash-outline"
-        onClick = {() => window.confirm("Você realmente quer deletar este hábito?")}
-        />
-    </HabitContainer>
-)
+const Habit = ({habit, deleteMyHabit, config}) => {
+    
+    return (
+        <HabitContainer>
+            <div>
+                <HabitTitle>
+                    {habit.name}
+                </HabitTitle>
+                <WeekdaySelector>
+                    <div>D</div>
+                    <div>S</div>
+                    <div>T</div>
+                    <div>Q</div>
+                    <div>Q</div>
+                    <div>S</div>
+                    <div>S</div>
+                </WeekdaySelector>
+            </div>
+            <ion-icon name = "trash-outline"
+            onClick = {() => deleteMyHabit(habit.id, config)}
+            />
+        </HabitContainer>
+    )
+}
 
 const HabitContainer = styled.div`
     display: flex;

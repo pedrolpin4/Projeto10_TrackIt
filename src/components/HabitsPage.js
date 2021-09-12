@@ -9,7 +9,7 @@ import Footer from "../shared/Footer"
 import Habit from "./Habit"
 import HabitsCreator from "./HabitsCreator"
 import { useEffect, useContext, useState } from "react"
-import { getUserHabits } from "../service/trackItService"
+import { getUserHabits, deleteHabit } from "../service/trackItService"
 import UserContext from "../contexts/UserContext"
 
 
@@ -31,6 +31,15 @@ const HabitsPage = () => {
         getUserHabits(config)
             .then(res => setHabits(res.data))
             .catch(err => alert(err.response.data))
+    }
+
+    const deleteMyHabit= (id, config) => {
+        if(window.confirm("Você realmente quer deletar este hábito?")){
+            deleteHabit(id, config)
+            .then(() => {
+                setHabits(habits.filter(habit => habit.id !== id))
+            })    
+        }
     }
 
     useEffect(() => gettingHabits(config), [])
@@ -57,7 +66,9 @@ const HabitsPage = () => {
                 {
                 habits.length 
                 ? 
-                habits.map(habit => <Habit habit = {habit}/>)
+                habits.map(habit => <Habit habit = {habit} 
+                    deleteMyHabit = {deleteMyHabit} config = {config}
+                />)
                 :
                 <h2>Você não tem nenhum hábito cadastrado ainda. 
                 Adicione um hábito para começar a trackear!</h2>
