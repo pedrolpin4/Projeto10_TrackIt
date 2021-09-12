@@ -44,7 +44,7 @@ const TodaysPage = () => {
             <PageTitle>
                 {dayjs().format(`dddd, DD/MM`)}
             </PageTitle>
-            <HabitsPercentage>
+            <HabitsPercentage percentage = {percentage}>
                 { 
                 percentage
                 ?
@@ -78,7 +78,7 @@ const HabitsPercentage = styled.p`
     font-size: 18px;
     line-height: 23px;
     align-self: flex-start;
-    color: #BABABA;
+    color: ${props => props.percentage ? "#8FC549" : "#BABABA"};
 `
 
 export default TodaysPage
