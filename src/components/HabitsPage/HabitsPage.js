@@ -2,15 +2,15 @@ import {
     Container,
     PageTitle,
     HabitsList
-} from "../shared/GlobalStyle"
+} from "../../shared/GlobalStyle"
 import styled from "styled-components"
-import NavBar from "../shared/NavBar"
-import Footer from "../shared/Footer"
+import NavBar from "../../shared/NavBar"
+import Footer from "../../shared/Footer"
 import Habit from "./Habit"
 import HabitsCreator from "./HabitsCreator"
 import { useEffect, useContext, useState } from "react"
-import { getUserHabits, deleteHabit } from "../service/trackItService"
-import UserContext from "../contexts/UserContext"
+import { getUserHabits, deleteHabit } from "../../service/trackItService"
+import UserContext from "../../contexts/UserContext"
 
 
 const HabitsPage = () => {
@@ -76,7 +76,7 @@ const HabitsPage = () => {
                 } 
             </HabitsList>
         </Container>
-        <Footer />
+        <Footer/>
     </>
     )
 }

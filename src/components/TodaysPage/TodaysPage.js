@@ -4,30 +4,32 @@ import {
     Container, 
     PageTitle, 
     HabitsList 
-} from "../shared/GlobalStyle"
+} from "../../shared/GlobalStyle"
 import {
     getTodaysHabits
-} from '../service/trackItService'
-import Footer from "../shared/Footer"
-import NavBar from "../shared/NavBar"
+} from '../../service/trackItService'
+import Footer from "../../shared/Footer"
+import NavBar from "../../shared/NavBar"
 import TodaysHabit from "./TodaysHabit"
-import UserContext from "../contexts/UserContext"
+import UserContext from "../../contexts/UserContext"
 import "dayjs/locale/pt-br"
 
 const TodaysPage = () => {
     const dayjs = require("dayjs")
     dayjs.locale('pt-br')
-    const [counter, setCounter] = useState(0)
     const [habits, setHabits] = useState([])
+    
     const {
         user
     } = useContext(UserContext)
+    
     const config = {
         headers:{
             "Authorization": `Bearer ${user.token}`
         }
     }
-    const percentage = 0 // presta atenção nisso
+
+    const percentage = 0 //sdas
 
     const gettingTodaysHabits = (config) => {
         getTodaysHabits(config)
@@ -44,7 +46,7 @@ const TodaysPage = () => {
             <PageTitle>
                 {dayjs().format(`dddd, DD/MM`)}
             </PageTitle>
-            <HabitsPercentage percentage = {percentage}>
+            <HabitsPercentage >
                 { 
                 percentage
                 ?
@@ -59,7 +61,7 @@ const TodaysPage = () => {
                 ?
                 habits.map(habit => (
                 <TodaysHabit habit = {habit} user = {user} key = {habit.id}
-                    counter = {counter} setCounter = {setCounter}
+                     length = {habits.length}   percentage = {percentage}
                 />
                 ))
                 :

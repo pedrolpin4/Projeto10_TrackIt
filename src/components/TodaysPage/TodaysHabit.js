@@ -1,15 +1,15 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { finishTodaysHabit, undoTodaysHabit } from "../service/trackItService"
+import { finishTodaysHabit, undoTodaysHabit } from "../../service/trackItService"
 
-const TodaysHabit = ({ user, habit, counter, setCounter }) =>{
+const TodaysHabit = ({ user, habit, percentage, setPercentage, length }) =>{
     const [isClicked, setIsClicked] = useState(false)
 
     const markHabit = (config, id) => {
         finishTodaysHabit(config, id)
             .then( res => {
                 setIsClicked(true)
-                setCounter(counter + 1)
+                //setPercentage((percentage + (100/length)))
             })
             .catch(res => console.log(res.response.data))
     }
@@ -18,7 +18,7 @@ const TodaysHabit = ({ user, habit, counter, setCounter }) =>{
         undoTodaysHabit(config, id)
             .then( res => {
                 setIsClicked(false)
-                setCounter(counter - 1)
+                //setPercentage(percentage - 100/length)
             })
             .catch(res => console.log(res.response.data))
     }

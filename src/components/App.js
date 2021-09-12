@@ -1,8 +1,8 @@
-import LoginPage from "./LoginPage";
-import SignUpPage from "./SignUpPage";
-import HabitsPage from "./HabitsPage";
-import TodaysPage from "./TodaysPage";
-import TrackingRecordPage from "./TrackingRecordPage"
+import LoginPage from "./Registration/LoginPage";
+import SignUpPage from "./Registration/SignUpPage";
+import HabitsPage from "./HabitsPage/HabitsPage";
+import TodaysPage from "./TodaysPage/TodaysPage";
+import TrackingRecordPage from "./TrackingRecordPage/TrackingRecordPage"
 import { GlobalStyle } from "../shared/GlobalStyle";
 import { 
   BrowserRouter as Router,

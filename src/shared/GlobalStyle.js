@@ -32,15 +32,6 @@ const GlobalStyle = createGlobalStyle`
             font-size: 19px;
             opacity: 1;
         }
-        margin-bottom: 6px;
-        padding: 10px;
-        background: #FFFFFF;
-        border: 1px solid #D4D4D4;
-        box-sizing: border-box;
-        border-radius: 5px;
-        height: 45px;
-        width: 303px;
-        font-size: 18px;
     }
 `
 

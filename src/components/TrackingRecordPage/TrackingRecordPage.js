@@ -1,8 +1,8 @@
-import Footer from "../shared/Footer"
+import Footer from "../../shared/Footer"
 import { 
     Container, 
-    PageTitle } from "../shared/GlobalStyle"
-import NavBar from "../shared/NavBar"
+    PageTitle } from "../../shared/GlobalStyle"
+import NavBar from "../../shared/NavBar"
 
 const TrackingRecordPage = () => (
     <>

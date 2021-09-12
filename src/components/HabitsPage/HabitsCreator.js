@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { WeekdaySelector } from "./Habit"
-import { createHabit } from "../service/trackItService"
+import { createHabit } from "../../service/trackItService"
 import WeekDay from "./WeekDay"
 import Loader from "react-loader-spinner";
 
@@ -31,12 +31,18 @@ const HabitsCreator = ({ setIsDoing, config, gettingHabits }) => {
         } else {
             setWeekdays([...weekdays, weekday])
         }
-        console.log(weekdays);
+    }
+
+    const submitHabit = () => {
+        if(weekdays.length !== 0){
+            createNewHabit({name: habitsName, days: weekdays} ,config)
+            setIsClicked(true)    
+        } else alert("Você deve selecionar pelo menos 1 dia da semana!!")
     }
 
     return(
         <NewHabitContainer>
-            <NameInput placeholder = "Nome do Hábito" 
+            <NameInput placeholder = "Nome do Hábito" isClicked = {isClicked}
             onChange = {isClicked ? null : e => {setHabitsName(e.target.value)}}
             background = {isClicked ? "E5E5E5E5" : "FAFAFA"}/>
             <WeekdaySelector>
@@ -51,10 +57,7 @@ const HabitsCreator = ({ setIsDoing, config, gettingHabits }) => {
                     Cancelar
                 </CancelButton>
                 <SubmitButton 
-                    onClick = {isClicked ? null : () => {
-                        createNewHabit({name: habitsName, days: weekdays} ,config)
-                        setIsClicked(true)
-                    }}
+                    onClick = {isClicked ? null : () => submitHabit()}
                     opacity = {isClicked ? "0.7" : "1"}
                 >
                     {
@@ -82,7 +85,15 @@ const NewHabitContainer = styled.div`
 
 const NameInput = styled.input`
     width: calc(100vw - 68px);
-    background-color: ${props => props.background};
+    background-color: ${props => props.isClicked ? "#F2F2F2" : "#FFFFFF"};
+    color: ${props => props.isClicked ? "#AFAFAF" : "black"};
+    margin-bottom: 6px;
+    padding: 10px;
+    border: 1px solid #D4D4D4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 18px;
 `
 
 const ButtonsContainer = styled.div`

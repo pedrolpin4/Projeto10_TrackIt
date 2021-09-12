@@ -14,7 +14,6 @@ const WeekDay = ({abv, index, treatDaySelection, isClicked}) => {
         () => {
             treatDaySelection(index)
             isSelected ? setIsSelected(false) : setIsSelected(true)
-            console.log(isSelected);
         }
         }
     >
