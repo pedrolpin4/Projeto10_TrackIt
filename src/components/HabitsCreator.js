@@ -12,7 +12,6 @@ const HabitsCreator = ({ setIsDoing, config, gettingHabits }) => {
     const abreviations = ["D", "S", "T", "Q", "Q", "S", "S"];
     
     const createNewHabit = (object, config) => {
-        
         createHabit(object, config)
             .then(res => {
                 setIsDoing(false)
@@ -43,7 +42,7 @@ const HabitsCreator = ({ setIsDoing, config, gettingHabits }) => {
             <WeekdaySelector>
                 {abreviations.map((abv, i) => (
                     <WeekDay abv ={abv} key = {abv+i} isClicked = {isClicked}
-                        index = {i} treatDaySelection = {treatDaySelection}
+                        index = {i} treatDaySelection = {treatDaySelection} weekdays = {weekdays}
                     />
                 ))}
             </WeekdaySelector>
@@ -94,6 +93,7 @@ const ButtonsContainer = styled.div`
 `
 
 const SubmitButton = styled.div`
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,6 +108,7 @@ const SubmitButton = styled.div`
 `
 
 const CancelButton = styled.div`
+    cursor: pointer;
     margin-right: 23px;
     color: #52B6FF;
     font-size: 16px;

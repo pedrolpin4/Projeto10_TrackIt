@@ -57,7 +57,11 @@ const TodaysPage = () => {
                 {
                 habits.length
                 ?
-                habits.map(habit => <TodaysHabit habit = {habit} user = {user} counter = {counter} setCounter = {setCounter}/>)
+                habits.map(habit => (
+                <TodaysHabit habit = {habit} user = {user} key = {habit.id}
+                    counter = {counter} setCounter = {setCounter}
+                />
+                ))
                 :
                 <h2>
                     Você não tem nenhum hábito cadastrado para hoje. Adicione um hábito para começar a trackear!

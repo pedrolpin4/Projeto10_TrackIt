@@ -10,7 +10,6 @@ const TodaysHabit = ({ user, habit, counter, setCounter }) =>{
             .then( res => {
                 setIsClicked(true)
                 setCounter(counter + 1)
-                console.log(res.data);
             })
             .catch(res => console.log(res.response.data))
     }
@@ -20,7 +19,6 @@ const TodaysHabit = ({ user, habit, counter, setCounter }) =>{
             .then( res => {
                 setIsClicked(false)
                 setCounter(counter - 1)
-                console.log(res.data);
             })
             .catch(res => console.log(res.response.data))
     }
@@ -37,7 +35,7 @@ const TodaysHabit = ({ user, habit, counter, setCounter }) =>{
             <HabitTitle>{habit.name}</HabitTitle>
             <HabitSequence>
                 <p>Sequencia Atual: {habit.currentSequence} dias</p>
-                <p>Seu recorde: {habit.highestScore} dias</p>
+                <p>Seu recorde: {habit.highestSequence} dias</p>
             </HabitSequence>
         </div>
         <CheckBox isClicked = {isClicked} 

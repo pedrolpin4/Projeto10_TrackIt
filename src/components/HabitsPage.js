@@ -66,7 +66,7 @@ const HabitsPage = () => {
                 {
                 habits.length 
                 ? 
-                habits.map(habit => <Habit habit = {habit} 
+                habits.map(habit => <Habit habit = {habit} key = {`h${habit.id}`}
                     deleteMyHabit = {deleteMyHabit} config = {config}
                 />)
                 :

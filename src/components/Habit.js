@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Habit = ({habit, deleteMyHabit, config}) => {
-    
+    const abreviations = ["D", "S", "T", "Q", "Q", "S", "S"];
     return (
         <HabitContainer>
             <div>
@@ -9,13 +9,14 @@ const Habit = ({habit, deleteMyHabit, config}) => {
                     {habit.name}
                 </HabitTitle>
                 <WeekdaySelector>
-                    <div>D</div>
-                    <div>S</div>
-                    <div>T</div>
-                    <div>Q</div>
-                    <div>Q</div>
-                    <div>S</div>
-                    <div>S</div>
+                    {abreviations.map((abv, i) => (
+                        <WeekDayStyle 
+                            key = {`${habit.id}${i}`} 
+                            isSelected = {habit.days.includes(i)}
+                        >
+                            {abv}
+                        </WeekDayStyle>
+                    ))}
                 </WeekdaySelector>
             </div>
             <ion-icon name = "trash-outline"
@@ -42,23 +43,25 @@ const HabitTitle = styled.p`
 const WeekdaySelector = styled.div`
     margin-top: 10px;
     display: flex;
-    div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 30px;
-        height: 30px;
-        font-size: 20px;
-        color: #DBDBDB;
-        background: #FFFFFF;
-        border: 1px solid #D5D5D5;
-        border-radius: 5px;
-        margin-right: 7px;
-    }
 `
 
+const WeekDayStyle = styled.div`
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: ${props => props.isSelected ?  "#FFFFFF" : "#DBDBDB"};
+    background: ${props => props.isSelected ? "#DBDBDB" : "#FFFFFF" };
+    border: 1px solid #D5D5D5;
+    border-radius: 5px;
+    margin-right: 7px;
+`
 export default Habit
 
 export {
-    WeekdaySelector
+    WeekdaySelector,
+    WeekDayStyle
 }

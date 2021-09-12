@@ -40,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 5px;
         height: 45px;
         width: 303px;
+        font-size: 18px;
     }
 `
 
