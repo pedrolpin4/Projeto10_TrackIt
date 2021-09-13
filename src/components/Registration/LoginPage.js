@@ -13,7 +13,7 @@ import UserContext from "../../contexts/UserContext";
 import Loader from "react-loader-spinner";
 
 
-const LoginPage = ({ userLogin}) => {   
+const LoginPage = ({ userLogin }) => {   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isClicked, setIsClicked] = useState(false)
