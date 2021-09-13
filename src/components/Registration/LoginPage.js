@@ -19,7 +19,6 @@ const LoginPage = ({ userLogin }) => {
     const [isClicked, setIsClicked] = useState(false)
     const history = useHistory()
     const {
-        user,
         setUser
     } = useContext(UserContext)
 
