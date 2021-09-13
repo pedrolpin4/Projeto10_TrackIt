@@ -23,7 +23,7 @@ const App = () => {
         <Switch>
           <Route path = "/" exact component = {LoginPage} />
           <Route path = "/cadastro" exact component = {SignUpPage} />
-          <PercentageContext.Provider value = {percentage, setPercentage}>
+          <PercentageContext.Provider value = {{percentage, setPercentage}}>
             <Route path = "/habitos" exact component = {HabitsPage} />
             <Route path = "/historico" exact component = {TrackingRecordPage} />
             <Route path = "/hoje" exact component = {TodaysPage} />

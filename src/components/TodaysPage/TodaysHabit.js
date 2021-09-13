@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { finishTodaysHabit, undoTodaysHabit } from "../../service/trackItService"
 
@@ -6,6 +6,24 @@ const TodaysHabit = ({ user, habit, length, percentage, setPercentage }) =>{
     const [isClicked, setIsClicked] = useState(habit.done)
     const [counter, setCounter] = useState(habit.currentSequence)
     const [sequenceVerifyer, setSequenceVerifyer] = useState(false)
+
+    const renderPercentage = () => {
+        if(isClicked) {
+            setPercentage((percentage + (100/length)))
+            setCounter(counter)
+        }
+    }
+
+    const renderVerifyer = () => {
+        if(habit.done && habit.currentSequence === habit.highestSequence){
+            setSequenceVerifyer(true)
+        }
+    }
+
+    useEffect(() => {
+        renderPercentage()
+        renderVerifyer()
+    }, [])
 
     const markHabit = (config, habit, id) => {
         finishTodaysHabit(config, habit, id)
@@ -47,7 +65,7 @@ const TodaysHabit = ({ user, habit, length, percentage, setPercentage }) =>{
                 </p>
                 <p>Seu recorde: 
                     <HighestSequence sequenceVerifyer = {sequenceVerifyer}>
-                        {sequenceVerifyer ? habit.currentSequence + 1 : habit.highestSequence} dias
+                        {sequenceVerifyer ? counter : habit.highestSequence} dias
                     </HighestSequence>
                 </p>
             </HabitSequence>
