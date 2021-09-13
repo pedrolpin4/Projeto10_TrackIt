@@ -33,7 +33,7 @@ const HabitsPage = () => {
     const gettingHabits = (config) => {
         getUserHabits(config)
             .then(res => setHabits(res.data))
-            .catch(err => alert(err.response.data))
+            .catch(() => alert("Não foi possível estabelecer conexão com o servidor!"))
     }
 
     const deleteMyHabit= (id, config) => {

@@ -29,12 +29,11 @@ const SignUpPage = () => {
         event.preventDefault()
         setIsClicked(true)
         postSignUpInfo(object)
-        .then(res => {
-            console.log(res.data);
+        .then(() => {
              history.push("/")
         })
-        .catch(err => {
-            alert(`${err.response.data.message}`)
+        .catch(() => {
+            alert(`${"Nenhum campo pode estar em branco"}`)
             setIsClicked(false)        
         })
     }

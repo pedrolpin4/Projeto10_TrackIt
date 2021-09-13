@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const LoginButton = styled.button`
+    cursor: pointer;
     margin: 6px 0px 25px 0px;
     display: flex;
     align-items: center;

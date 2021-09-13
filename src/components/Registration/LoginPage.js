@@ -30,8 +30,8 @@ const LoginPage = () => {
                 setUser(res.data)
                 history.push("/hoje")
             })
-            .catch(err =>{
-                alert(err.response.data.message)
+            .catch(() =>{
+                alert("usuário e/ou senha inválidos")
                 setIsClicked(false)
             })
     }

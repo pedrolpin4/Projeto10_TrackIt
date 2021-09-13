@@ -36,9 +36,17 @@ const TodaysPage = () => {
         }
     }
 
+    const initialPercentage = (habits) => {
+        const doneHabits = habits.filter(habit => habit.done !== 0);
+        setPercentage(Math.round(100 * (doneHabits.length/habits.length)))
+    }
+
     const gettingTodaysHabits = (config) => {
         getTodaysHabits(config)
-            .then(res => setHabits(res.data))
+            .then(res => {
+                setHabits(res.data)
+                initialPercentage(res.data)
+            })
             .catch(err => console.log(err.response.data))
     }
 
