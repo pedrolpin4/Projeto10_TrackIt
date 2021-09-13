@@ -20,7 +20,8 @@ const HabitsPage = () => {
 
     const [habits, setHabits] = useState([]);
     const [isDoing, setIsDoing] = useState(false);
-    const [habitStorage, setHabitStorage] = useState([])
+    const [habitsName, setHabitsName] = useState("");
+    const [weekdays, setWeekdays] = useState([]);
 
     const config = {
         headers:{
@@ -59,8 +60,9 @@ const HabitsPage = () => {
                 {
                 isDoing
                 ?
-                <HabitsCreator setIsDoing = {setIsDoing} habitStorage = {habitStorage}
-                setHabitStorage = {setHabitStorage} config = {config} gettingHabits = {gettingHabits}/>
+                <HabitsCreator setIsDoing = {setIsDoing} config = {config} gettingHabits = {gettingHabits}
+                    weekdays = {weekdays} setWeekdays = {setWeekdays} habitsName = {habitsName} setHabitsName = {setHabitsName}
+                />
                 :
                 ""
                 }

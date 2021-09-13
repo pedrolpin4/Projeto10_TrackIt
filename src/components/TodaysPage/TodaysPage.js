@@ -13,6 +13,7 @@ import NavBar from "../../shared/NavBar"
 import TodaysHabit from "./TodaysHabit"
 import UserContext from "../../contexts/UserContext"
 import "dayjs/locale/pt-br"
+import PercentageContext from "../../contexts/PercentageContext"
 
 const TodaysPage = () => {
     const dayjs = require("dayjs")
@@ -22,14 +23,17 @@ const TodaysPage = () => {
     const {
         user
     } = useContext(UserContext)
+
+    const {
+        percentage,
+        setPercentage
+    } = useContext(PercentageContext)
     
     const config = {
         headers:{
             "Authorization": `Bearer ${user.token}`
         }
     }
-
-    const percentage = 0 //sdas
 
     const gettingTodaysHabits = (config) => {
         getTodaysHabits(config)
@@ -46,7 +50,7 @@ const TodaysPage = () => {
             <PageTitle>
                 {dayjs().format(`dddd, DD/MM`)}
             </PageTitle>
-            <HabitsPercentage >
+            <HabitsPercentage percentage = {percentage}>
                 { 
                 percentage
                 ?
@@ -60,8 +64,8 @@ const TodaysPage = () => {
                 habits.length
                 ?
                 habits.map(habit => (
-                <TodaysHabit habit = {habit} user = {user} key = {habit.id}
-                     length = {habits.length}   percentage = {percentage}
+                <TodaysHabit habit = {habit} user = {user} key = {habit.id} length = {habits.length}
+                    percentage = {percentage} setPercentage = {setPercentage}
                 />
                 ))
                 :

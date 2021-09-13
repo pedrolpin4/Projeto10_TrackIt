@@ -2,17 +2,17 @@ import { useContext } from 'react';
 import { CircularProgressbar, buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
-import UserContext from '../contexts/UserContext';
+import PercentageContext from '../contexts/PercentageContext';
 
 const ProgressBar = () => {
     const{
-        user
-    } = useContext(UserContext)
+        percentage
+    } = useContext(PercentageContext)
 
     return (
     <ProgressBarContainer>
         <CircularProgressbar
-            value= {user.percentage}
+            value= {percentage}
             text= "Hoje"
             background
             backgroundPadding={6}

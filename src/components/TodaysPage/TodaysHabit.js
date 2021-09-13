@@ -2,16 +2,20 @@ import { useState } from "react"
 import styled from "styled-components"
 import { finishTodaysHabit, undoTodaysHabit } from "../../service/trackItService"
 
-const TodaysHabit = ({ user, habit, setPercentage, length }) =>{
-    const [isClicked, setIsClicked] = useState(false)
+const TodaysHabit = ({ user, habit, length, percentage, setPercentage }) =>{
+    const [isClicked, setIsClicked] = useState(habit.done)
     const [counter, setCounter] = useState(habit.currentSequence)
+    const [sequenceVerifyer, setSequenceVerifyer] = useState(false)
 
     const markHabit = (config, habit, id) => {
         finishTodaysHabit(config, habit, id)
             .then( res => {
+                if(counter+1 >= habit.highestSequence){
+                    setSequenceVerifyer(true)
+                }
                 setIsClicked(true)
                 setCounter(counter+1)
-                //setPercentage((percentage + (100/length)))
+                setPercentage((percentage + (100/length)))
             })
             .catch(res => alert(res.response.data.message))
     }
@@ -21,8 +25,8 @@ const TodaysHabit = ({ user, habit, setPercentage, length }) =>{
             .then( res => {
                 setIsClicked(false)
                 setCounter(counter-1)
-                console.log(res.data);
-                //setPercentage(percentage - 100/length)
+                setSequenceVerifyer(false)
+                setPercentage(percentage - 100/length)
             })
             .catch(res => alert(res.response.data.message))
     }
@@ -42,7 +46,9 @@ const TodaysHabit = ({ user, habit, setPercentage, length }) =>{
                     <CurrentSequence isClicked = {isClicked}>{counter} dias</CurrentSequence>
                 </p>
                 <p>Seu recorde: 
-                    <HighestSequence>{isClicked ? habit.highestSequence + 1 : habit.highestSequence} dias</HighestSequence>
+                    <HighestSequence sequenceVerifyer = {sequenceVerifyer}>
+                        {sequenceVerifyer ? habit.currentSequence + 1 : habit.highestSequence} dias
+                    </HighestSequence>
                 </p>
             </HabitSequence>
         </div>
@@ -81,7 +87,7 @@ const CurrentSequence = styled.span`
 `
 
 const HighestSequence = styled.span`
-    color: "#666666";
+    color: ${props => props.sequenceVerifyer ? "#8FC549" : "#666666"};
     margin-left: 5px;
 `
 

@@ -5,9 +5,7 @@ import { createHabit } from "../../service/trackItService"
 import WeekDay from "./WeekDay"
 import Loader from "react-loader-spinner";
 
-const HabitsCreator = ({ setIsDoing, config, gettingHabits, habitStorage, setHabitStorage }) => {
-    const [habitsName, setHabitsName] = useState("");
-    const [weekdays, setWeekdays] = useState([]);
+const HabitsCreator = ({ setIsDoing, config, gettingHabits, weekdays, setWeekdays, habitsName, setHabitsName }) => {
     const [isClicked, setIsClicked] = useState(false)
     const abreviations = ["D", "S", "T", "Q", "Q", "S", "S"];
     
@@ -47,16 +45,14 @@ const HabitsCreator = ({ setIsDoing, config, gettingHabits, habitStorage, setHab
             />
             <WeekdaySelector>
                 {abreviations.map((abv, i) => (
-                    <WeekDay abv ={abv} key = {abv+i} isClicked = {isClicked} habitStorage = {habitStorage}
-                        index = {i} treatDaySelection = {treatDaySelection} weekdays = {weekdays}
+                    <WeekDay abv ={abv} key = {abv+i} isClicked = {isClicked} index = {i} 
+                        treatDaySelection = {treatDaySelection} weekdays = {weekdays}
                     />
                 ))}
             </WeekdaySelector>
             <ButtonsContainer>
                 <CancelButton onClick = {() =>{
                     setIsDoing(false)
-                    setHabitStorage({name: habitsName, days: weekdays})
-                    console.log(habitStorage);
                 }}>
                     Cancelar
                 </CancelButton>
