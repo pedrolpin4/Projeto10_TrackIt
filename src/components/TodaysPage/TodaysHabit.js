@@ -15,7 +15,7 @@ const TodaysHabit = ({ user, habit, length, percentage, setPercentage }) =>{
 
     useEffect(() => {
         renderVerifyer()
-    }, [])
+    }, [renderVerifyer])
 
     const markHabit = (config, habit, id) => {
         finishTodaysHabit(config, habit, id)

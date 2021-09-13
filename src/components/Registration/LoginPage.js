@@ -33,7 +33,7 @@ const LoginPage = ({ userLogin }) => {
         }
     }
 
-    useEffect(() => verifyStorage(userLogin), [])
+    useEffect(() => verifyStorage(userLogin), [userLogin])
     
     const LoggingIn = (object, event) => {
         event.preventDefault()

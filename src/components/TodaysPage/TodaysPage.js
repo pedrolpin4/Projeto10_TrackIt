@@ -50,7 +50,7 @@ const TodaysPage = () => {
             .catch(err => console.log(err.response.data))
     }
 
-    useEffect(() => gettingTodaysHabits(config) , [])
+    useEffect(() => gettingTodaysHabits(config) , [config])
 
     return (
     <>
