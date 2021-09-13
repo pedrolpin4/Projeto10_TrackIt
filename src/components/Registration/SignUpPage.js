@@ -33,7 +33,7 @@ const SignUpPage = () => {
              history.push("/")
         })
         .catch(() => {
-            alert(`${"Nenhum campo pode estar em branco"}`)
+            alert(`${"Preencha os campos corretamente, atentando para os padrões de email e url"}`)
             setIsClicked(false)        
         })
     }
