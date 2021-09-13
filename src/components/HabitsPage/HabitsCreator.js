@@ -5,7 +5,7 @@ import { createHabit } from "../../service/trackItService"
 import WeekDay from "./WeekDay"
 import Loader from "react-loader-spinner";
 
-const HabitsCreator = ({ setIsDoing, config, gettingHabits }) => {
+const HabitsCreator = ({ setIsDoing, config, gettingHabits, habitStorage, setHabitStorage }) => {
     const [habitsName, setHabitsName] = useState("");
     const [weekdays, setWeekdays] = useState([]);
     const [isClicked, setIsClicked] = useState(false)
@@ -18,10 +18,9 @@ const HabitsCreator = ({ setIsDoing, config, gettingHabits }) => {
                 gettingHabits(config)
                 setWeekdays([])
             })
-            .catch(() =>{
-                alert("Ops, deu algo errado!!")
+            .catch(res =>{
+                alert("O campo nome n pode estar vazio")
                 setIsClicked(false)
-                setWeekdays([])
             })
     }
 
@@ -43,17 +42,22 @@ const HabitsCreator = ({ setIsDoing, config, gettingHabits }) => {
     return(
         <NewHabitContainer>
             <NameInput placeholder = "Nome do Hábito" isClicked = {isClicked}
-            onChange = {isClicked ? null : e => {setHabitsName(e.target.value)}}
-            background = {isClicked ? "E5E5E5E5" : "FAFAFA"}/>
+                onChange = {isClicked ? null : e => {setHabitsName(e.target.value)}}
+                background = {isClicked ? "E5E5E5E5" : "FAFAFA"} value = {habitsName}
+            />
             <WeekdaySelector>
                 {abreviations.map((abv, i) => (
-                    <WeekDay abv ={abv} key = {abv+i} isClicked = {isClicked}
+                    <WeekDay abv ={abv} key = {abv+i} isClicked = {isClicked} habitStorage = {habitStorage}
                         index = {i} treatDaySelection = {treatDaySelection} weekdays = {weekdays}
                     />
                 ))}
             </WeekdaySelector>
             <ButtonsContainer>
-                <CancelButton onClick = {() => setIsDoing(false)}>
+                <CancelButton onClick = {() =>{
+                    setIsDoing(false)
+                    setHabitStorage({name: habitsName, days: weekdays})
+                    console.log(habitStorage);
+                }}>
                     Cancelar
                 </CancelButton>
                 <SubmitButton 

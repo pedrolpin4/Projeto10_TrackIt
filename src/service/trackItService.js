@@ -21,13 +21,13 @@ const getTodaysHabits = (config) => {
     return promise
 }
 
-const finishTodaysHabit = (config, id) => {
-    const promise = axios.post(`${BASE_URL}/habits/${id}/check`, config)
+const finishTodaysHabit = (config, habit, id) => {
+    const promise = axios.post(`${BASE_URL}/habits/${id}/check`, habit, config)
     return promise
 }
 
-const undoTodaysHabit = (config, id) => {
-    const promise = axios.post(`${BASE_URL}/habits/${id}/uncheck`, config)
+const undoTodaysHabit = (config, habit, id) => {
+    const promise = axios.post(`${BASE_URL}/habits/${id}/uncheck`, habit, config)
     return promise 
 }
 

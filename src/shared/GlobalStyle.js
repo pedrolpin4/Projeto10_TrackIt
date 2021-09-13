@@ -33,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
             opacity: 1;
         }
     }
+
+    ion-icon{
+        cursor: pointer;
+    }
 `
 
 const Container = styled.div`

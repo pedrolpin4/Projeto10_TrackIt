@@ -2,25 +2,29 @@ import { useState } from "react"
 import styled from "styled-components"
 import { finishTodaysHabit, undoTodaysHabit } from "../../service/trackItService"
 
-const TodaysHabit = ({ user, habit, percentage, setPercentage, length }) =>{
+const TodaysHabit = ({ user, habit, setPercentage, length }) =>{
     const [isClicked, setIsClicked] = useState(false)
+    const [counter, setCounter] = useState(habit.currentSequence)
 
-    const markHabit = (config, id) => {
-        finishTodaysHabit(config, id)
+    const markHabit = (config, habit, id) => {
+        finishTodaysHabit(config, habit, id)
             .then( res => {
                 setIsClicked(true)
+                setCounter(counter+1)
                 //setPercentage((percentage + (100/length)))
             })
-            .catch(res => console.log(res.response.data))
+            .catch(res => alert(res.response.data.message))
     }
 
-    const unMarkHabit = (config, id) => {
-        undoTodaysHabit(config, id)
+    const unMarkHabit = (config, habit, id) => {
+        undoTodaysHabit(config, habit, id)
             .then( res => {
                 setIsClicked(false)
+                setCounter(counter-1)
+                console.log(res.data);
                 //setPercentage(percentage - 100/length)
             })
-            .catch(res => console.log(res.response.data))
+            .catch(res => alert(res.response.data.message))
     }
 
     const config = {
@@ -34,17 +38,21 @@ const TodaysHabit = ({ user, habit, percentage, setPercentage, length }) =>{
         <div>
             <HabitTitle>{habit.name}</HabitTitle>
             <HabitSequence>
-                <p>Sequencia Atual: {habit.currentSequence} dias</p>
-                <p>Seu recorde: {habit.highestSequence} dias</p>
+                <p>Sequencia Atual: 
+                    <CurrentSequence isClicked = {isClicked}>{counter} dias</CurrentSequence>
+                </p>
+                <p>Seu recorde: 
+                    <HighestSequence>{isClicked ? habit.highestSequence + 1 : habit.highestSequence} dias</HighestSequence>
+                </p>
             </HabitSequence>
         </div>
         <CheckBox isClicked = {isClicked} 
         onClick = {() => {
             isClicked
             ?
-            unMarkHabit(config, habit.id)
+            unMarkHabit(config, habit, habit.id)
             :
-            markHabit(config, habit.id)
+            markHabit(config, habit, habit.id)
         }}>
             <ion-icon name = "checkbox"/>
         </CheckBox>
@@ -67,6 +75,15 @@ const HabitTitle = styled.p`
     line-height: 25px;
     color: #666666;
 `
+const CurrentSequence = styled.span`
+    color: ${props => props.isClicked ? "#8FC549" : "#666666"};
+    margin-left: 5px;
+`
+
+const HighestSequence = styled.span`
+    color: "#666666";
+    margin-left: 5px;
+`
 
 const HabitSequence = styled.div`
     font-size: 13px;
@@ -76,7 +93,7 @@ const HabitSequence = styled.div`
 `
 
 const CheckBox = styled.div`
-    color: ${props => props.isClicked ? "#EBEBEB" : "#8FC549"};
+    color: ${props => props.isClicked ? "#8FC549" : "#EBEBEB" };
     font-size: 69px;
 `
 

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { WeekDayStyle } from "./Habit"
 
-const WeekDay = ({abv, index, treatDaySelection, isClicked}) => {
+const WeekDay = ({abv, index, treatDaySelection, isClicked, habitStorage}) => {
     const [isSelected, setIsSelected] = useState(false);
     return (
     <WeekDayStyle 
