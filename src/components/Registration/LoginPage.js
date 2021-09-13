@@ -13,7 +13,7 @@ import UserContext from "../../contexts/UserContext";
 import Loader from "react-loader-spinner";
 
 
-const LoginPage = ({ userLogin }) => {   
+const LoginPage = ({ userLogin}) => {   
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isClicked, setIsClicked] = useState(false)
@@ -22,18 +22,13 @@ const LoginPage = ({ userLogin }) => {
         setUser
     } = useContext(UserContext)
 
-    console.log(userLogin);
-    
-    const verifyStorage = (userLogin) => {
+    const checkRedirection = (userLogin) => {
         if(userLogin){
-            if(window.confirm(`Deseja prosseguir como ${userLogin.email}?`)){
-                setUser(userLogin)
-                history.push("/hoje")
-            } 
+            history.push("/hoje")
         }
     }
-
-    useEffect(() => verifyStorage(userLogin), [])
+    
+    useEffect(() => checkRedirection(userLogin), [])
     
     const LoggingIn = (object, event) => {
         event.preventDefault()

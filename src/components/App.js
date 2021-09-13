@@ -10,14 +10,22 @@ import {
   Switch,
  } from "react-router-dom";
  import UserContext from "../contexts/UserContext"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PercentageContext from "../contexts/PercentageContext";
 
 const App = () => {
-   const [user, setUser] = useState({})
-   const [percentage, setPercentage] = useState(0)
-   const userLogin = JSON.parse(localStorage.getItem("userLogin"))
-   
+  const [user, setUser] = useState({})
+  const [percentage, setPercentage] = useState(0)
+  const userLogin = JSON.parse(localStorage.getItem("userLogin"))
+
+  const verifyStorage = (userLogin) => {
+      if(userLogin){
+        setUser(userLogin)
+      }
+  }
+
+  useEffect(() => verifyStorage(userLogin), [])
+
   return (
     <Router>
       <GlobalStyle />
