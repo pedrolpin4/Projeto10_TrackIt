@@ -51,9 +51,9 @@ const TodaysPage = () => {
             <PageTitle>
                 {dayjs().format(`dddd, DD/MM`)}
             </PageTitle>
-            <HabitsPercentage percentage = {percentage}>
+            <HabitsPercentage percentage = {Math.round(percentage)}>
                 { 
-                percentage
+                Math.round(percentage)
                 ?
                 `${Math.round(percentage)}% dos hábitos concluídos`
                 :

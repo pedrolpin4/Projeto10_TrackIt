@@ -9,11 +9,10 @@ const ProgressBar = () => {
         percentage
     } = useContext(PercentageContext)
     
-    console.log(percentage);
     return (
     <ProgressBarContainer>
         <CircularProgressbar
-            value= {percentage}
+            value= {Math.round(percentage)}
             text= "Hoje"
             background
             backgroundPadding={6}
