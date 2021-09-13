@@ -37,7 +37,7 @@ const TodaysPage = () => {
     }
 
     const initialPercentage = (habits) => {
-        const doneHabits = habits.filter(habit => habit.done !== 0);
+        const doneHabits = habits.filter(habit => habit.done);
         setPercentage(Math.round(100 * (doneHabits.length/habits.length)))
     }
 
