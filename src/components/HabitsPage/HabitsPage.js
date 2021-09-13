@@ -45,7 +45,7 @@ const HabitsPage = () => {
         }
     }
 
-    useEffect(() => gettingHabits(config), [config])
+    useEffect(() => gettingHabits(config), [])
     
     return (
     <>
