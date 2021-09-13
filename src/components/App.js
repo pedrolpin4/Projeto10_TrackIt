@@ -7,7 +7,7 @@ import { GlobalStyle } from "../shared/GlobalStyle";
 import { 
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
  } from "react-router-dom";
  import UserContext from "../contexts/UserContext"
 import { useState } from "react";
@@ -16,12 +16,16 @@ import PercentageContext from "../contexts/PercentageContext";
 const App = () => {
    const [user, setUser] = useState({})
    const [percentage, setPercentage] = useState(0)
+   const userLogin = JSON.parse(localStorage.getItem("userLogin"))
+   
   return (
     <Router>
       <GlobalStyle />
       <UserContext.Provider value = {{user, setUser}}>
         <Switch>
-          <Route path = "/" exact component = {LoginPage} />
+          <Route path = "/" exact>
+             <LoginPage  userLogin = {userLogin}/>
+          </Route>
           <Route path = "/cadastro" exact component = {SignUpPage} />
           <PercentageContext.Provider value = {{percentage, setPercentage}}>
             <Route path = "/habitos" exact component = {HabitsPage} />
