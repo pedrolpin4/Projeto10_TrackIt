@@ -55,7 +55,7 @@ const TodaysPage = () => {
                 { 
                 percentage
                 ?
-                `${percentage}% dos hábitos concluídos`
+                `${Math.round(percentage)}% dos hábitos concluídos`
                 :
                 "Nenhum hábito concluído ainda"
                 }

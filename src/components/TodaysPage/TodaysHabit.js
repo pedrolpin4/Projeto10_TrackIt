@@ -7,13 +7,6 @@ const TodaysHabit = ({ user, habit, length, percentage, setPercentage }) =>{
     const [counter, setCounter] = useState(habit.currentSequence)
     const [sequenceVerifyer, setSequenceVerifyer] = useState(false)
 
-    const renderPercentage = () => {
-        if(isClicked) {
-            setPercentage((percentage + (100/length)))
-            setCounter(counter)
-        }
-    }
-
     const renderVerifyer = () => {
         if(habit.done && habit.currentSequence === habit.highestSequence){
             setSequenceVerifyer(true)
@@ -21,7 +14,6 @@ const TodaysHabit = ({ user, habit, length, percentage, setPercentage }) =>{
     }
 
     useEffect(() => {
-        renderPercentage()
         renderVerifyer()
     }, [])
 
@@ -44,7 +36,7 @@ const TodaysHabit = ({ user, habit, length, percentage, setPercentage }) =>{
                 setIsClicked(false)
                 setCounter(counter-1)
                 setSequenceVerifyer(false)
-                setPercentage(percentage - 100/length)
+                setPercentage((percentage - (100/length)))
             })
             .catch(res => alert(res.response.data.message))
     }
