@@ -9,6 +9,8 @@ const ProgressBar = () => {
         percentage
     } = useContext(PercentageContext)
 
+    console.log(percentage);
+    
     return (
     <ProgressBarContainer>
         <CircularProgressbar

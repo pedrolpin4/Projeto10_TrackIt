@@ -1,7 +1,9 @@
+import styled from "styled-components"
 import Footer from "../../shared/Footer"
 import { 
     Container, 
-    PageTitle } from "../../shared/GlobalStyle"
+    PageTitle,
+    FeatureMessage } from "../../shared/GlobalStyle"
 import NavBar from "../../shared/NavBar"
 
 const TrackingRecordPage = () => (
@@ -11,9 +13,9 @@ const TrackingRecordPage = () => (
             <PageTitle>
                 Histórico
             </PageTitle>
-            <h2>
+            <FeatureMessage>
                 Em breve você poderá ver o histórico dos seus hábitos aqui!
-            </h2>
+            </FeatureMessage>
         </Container>
         <Footer />
     </>

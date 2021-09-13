@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from "react"
 import { 
     Container, 
     PageTitle, 
-    HabitsList 
+    HabitsList, 
+    FeatureMessage
 } from "../../shared/GlobalStyle"
 import {
     getTodaysHabits
@@ -69,9 +70,9 @@ const TodaysPage = () => {
                 />
                 ))
                 :
-                <h2>
+                <FeatureMessage>
                     Você não tem nenhum hábito cadastrado para hoje. Adicione um hábito para começar a trackear!
-                </h2>
+                </FeatureMessage>
                 }
             </HabitsList>
         </Container>

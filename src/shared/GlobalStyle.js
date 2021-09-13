@@ -48,14 +48,15 @@ const Container = styled.div`
     background-color: ${props => props.background};
     margin: 70px 0px 80px 0px;
     height: 100vh;
-    h2{
-        margin-top: 28px;
-        font-size: 18px;
-        line-height: 22px;
-        color: #666666;
-    }
 `;
 
+const FeatureMessage = styled.h2`
+    margin-top: 28px;
+    font-size: 18px;
+    line-height: 22px;
+    align-self: flex-start;
+    color: #666666;
+`
 const PageTitle = styled.div`
     display: flex;
     width: 100%;
@@ -76,5 +77,6 @@ export {
     GlobalStyle,
     Container,
     PageTitle,
-    HabitsList
+    HabitsList,
+    FeatureMessage
 }

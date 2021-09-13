@@ -1,7 +1,8 @@
 import {
     Container,
     PageTitle,
-    HabitsList
+    HabitsList,
+    FeatureMessage
 } from "../../shared/GlobalStyle"
 import styled from "styled-components"
 import NavBar from "../../shared/NavBar"
@@ -73,8 +74,8 @@ const HabitsPage = () => {
                     deleteMyHabit = {deleteMyHabit} config = {config}
                 />)
                 :
-                <h2>Você não tem nenhum hábito cadastrado ainda. 
-                Adicione um hábito para começar a trackear!</h2>
+                <FeatureMessage>Você não tem nenhum hábito cadastrado ainda. 
+                Adicione um hábito para começar a trackear!</FeatureMessage>
                 
                 } 
             </HabitsList>
