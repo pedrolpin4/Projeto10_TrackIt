@@ -12,17 +12,23 @@ import HabitsCreator from "./HabitsCreator"
 import { useEffect, useContext, useState } from "react"
 import { getUserHabits, deleteHabit } from "../../service/trackItService"
 import UserContext from "../../contexts/UserContext"
+import { useHistory } from "react-router"
 
 
 const HabitsPage = () => {
     const {
         user
-    } = useContext(UserContext)
+    } = useContext(UserContext);
+    const history = useHistory();
 
     const [habits, setHabits] = useState([]);
     const [isDoing, setIsDoing] = useState(false);
     const [habitsName, setHabitsName] = useState("");
     const [weekdays, setWeekdays] = useState([]);
+
+    if(!localStorage.getItem("userLogin")){
+        history.push("/")
+    }
 
     const config = {
         headers:{

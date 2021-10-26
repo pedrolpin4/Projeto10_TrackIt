@@ -15,8 +15,10 @@ import TodaysHabit from "./TodaysHabit"
 import UserContext from "../../contexts/UserContext"
 import "dayjs/locale/pt-br"
 import PercentageContext from "../../contexts/PercentageContext"
+import { useHistory } from "react-router"
 
 const TodaysPage = () => {
+    const history = useHistory();
     const dayjs = require("dayjs")
     dayjs.locale('pt-br')
     const [habits, setHabits] = useState([])
@@ -24,6 +26,10 @@ const TodaysPage = () => {
     const {
         user
     } = useContext(UserContext)
+
+    if(!localStorage.getItem("userLogin")){
+        history.push("/")
+    }
 
     const {
         percentage,
