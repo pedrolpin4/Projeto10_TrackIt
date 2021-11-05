@@ -1,7 +1,7 @@
 import {ReactComponent as LogoSvg} from "../assets/logo.svg"
 
 const Logo = () => (
-    <LogoSvg />
+    <LogoSvg className = "logo"/>
 );
 
 export default Logo

@@ -4,9 +4,10 @@ import {
     LoginButton,
     LoginInput,
     LoginSignInChanger,
-    LoginForm
+    LoginForm,
+    RegistrationContainer,
+    WhiteBackground
 } from "./RegistrationStyles";
-import { Container } from "../../shared/GlobalStyle"
 import {postSignUpInfo} from "../../service/trackItService"
 import Logo from "../../shared/Logo";
 import Loader from "react-loader-spinner";
@@ -39,40 +40,43 @@ const SignUpPage = () => {
     }
 
     return (
-    <Container background = "#FFFFFF">
-        <Logo />
-        <LoginForm onSubmit = {event => SigningUp(userInfo, event)}>
-            <LoginInput isClicked = {isClicked} margin = "32px" placeholder = "email" type = "email"
-                value = {email} onChange = {isClicked ? null : e => setEmail(e.target.value)} 
-            />
-            <LoginInput isClicked = {isClicked} placeholder = "senha" type = "password"
-                value = {password} onChange = {isClicked ? null : e => setPassword(e.target.value)} 
-            />
-            <LoginInput isClicked = {isClicked} placeholder = "nome" type = "text"
-                value = {name} onChange = {isClicked ? null : e => setName(e.target.value)} 
-            />
-            <LoginInput isClicked = {isClicked} placeholder = "foto" type = "url"
-                value = {image} onChange = {isClicked ? null : e => setImage(e.target.value)} 
-            />
-            
-            <LoginButton type = "submit"
-                opacity = {isClicked ? "0.7" : "1"}
-            >
-                {
-                isClicked
-                ?
-                <Loader type="ThreeDots" color="#FFFFFF" height={60} width={60} />
-                :
-                "Cadastrar"
-                }
-            </LoginButton>  
-        </LoginForm>      
-        <Link to = "/">
-            <LoginSignInChanger>
-                Já tem uma conta? Faça login!
-            </LoginSignInChanger>
-        </Link>      
-    </Container>
+    <>
+        <WhiteBackground />
+        <RegistrationContainer>
+            <Logo />
+            <LoginForm onSubmit = {event => SigningUp(userInfo, event)}>
+                <LoginInput isClicked = {isClicked} margin = "32px" placeholder = "email" type = "email"
+                    value = {email} onChange = {isClicked ? null : e => setEmail(e.target.value)} 
+                />
+                <LoginInput isClicked = {isClicked} placeholder = "senha" type = "password"
+                    value = {password} onChange = {isClicked ? null : e => setPassword(e.target.value)} 
+                />
+                <LoginInput isClicked = {isClicked} placeholder = "nome" type = "text"
+                    value = {name} onChange = {isClicked ? null : e => setName(e.target.value)} 
+                />
+                <LoginInput isClicked = {isClicked} placeholder = "foto" type = "url"
+                    value = {image} onChange = {isClicked ? null : e => setImage(e.target.value)} 
+                />
+                
+                <LoginButton type = "submit"
+                    opacity = {isClicked ? "0.7" : "1"}
+                >
+                    {
+                    isClicked
+                    ?
+                    <Loader type="ThreeDots" color="#FFFFFF" height={60} width={60} />
+                    :
+                    "Cadastrar"
+                    }
+                </LoginButton>  
+            </LoginForm>      
+            <Link to = "/">
+                <LoginSignInChanger>
+                    Já tem uma conta? Faça login!
+                </LoginSignInChanger>
+            </Link>      
+        </RegistrationContainer>
+    </>
 )}
 
 export default SignUpPage

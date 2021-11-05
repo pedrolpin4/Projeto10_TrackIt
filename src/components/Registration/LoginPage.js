@@ -3,9 +3,10 @@ import {
     LoginButton,
     LoginSignInChanger,
     LoginInput,
-    LoginForm
+    LoginForm,
+    RegistrationContainer,
+    WhiteBackground
 } from "./RegistrationStyles";
-import { Container } from "../../shared/GlobalStyle"
 import { postLoginInfo } from "../../service/trackItService"
 import Logo from "../../shared/Logo";
 import { useState, useContext, useEffect } from "react";
@@ -46,32 +47,35 @@ const LoginPage = ({ userLogin }) => {
     }
 
     return (
-    <Container background = "#FFFFFF">
-        <Logo />
-        <LoginForm onSubmit = {(event) => LoggingIn({email, password}, event)}>
-            <LoginInput placeholder = "email" type = "email" isClicked = {isClicked}
-            value = {email} onChange = {isClicked ? null : e => setEmail(e.target.value)}/>
-            <LoginInput placeholder = "senha" type = "password" isClicked ={isClicked}
-            value = {password} onChange = {isClicked ? null : e => setPassword(e.target.value)}/>
-            <LoginButton 
-                type = "submit"
-                opacity = {isClicked ? "0.7" : "1"}
-            >
-                {
-                isClicked
-                ?
-                <Loader type="ThreeDots" color="#FFFFFF" height={60} width={60} />
-                :
-                "Entrar"
-                }
-            </LoginButton>
-        </LoginForm>
-        <Link to = "/cadastro">
-            <LoginSignInChanger>
-                Não tem uma conta? Cadastre-se!
-            </LoginSignInChanger>
-        </Link>      
-    </Container>
+    <>
+        <WhiteBackground />
+        <RegistrationContainer>
+            <Logo />
+            <LoginForm onSubmit = {(event) => LoggingIn({email, password}, event)}>
+                <LoginInput placeholder = "email" type = "email" isClicked = {isClicked}
+                value = {email} onChange = {isClicked ? null : e => setEmail(e.target.value)}/>
+                <LoginInput placeholder = "senha" type = "password" isClicked ={isClicked}
+                value = {password} onChange = {isClicked ? null : e => setPassword(e.target.value)}/>
+                <LoginButton 
+                    type = "submit"
+                    opacity = {isClicked ? "0.7" : "1"}
+                >
+                    {
+                    isClicked
+                    ?
+                    <Loader type="ThreeDots" color="#FFFFFF" height={60} width={60} />
+                    :
+                    "Entrar"
+                    }
+                </LoginButton>
+            </LoginForm>
+            <Link to = "/cadastro">
+                <LoginSignInChanger>
+                    Não tem uma conta? Cadastre-se!
+                </LoginSignInChanger>
+            </Link>      
+        </RegistrationContainer>
+    </>
 )}
 
 export default LoginPage

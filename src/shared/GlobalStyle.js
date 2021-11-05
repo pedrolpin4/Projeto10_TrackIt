@@ -6,6 +6,25 @@ const GlobalStyle = createGlobalStyle`
     body{
         font-family: 'Lexend Deca', sans-serif;
         overflow-y: visible;
+        background-color: #E5E5E5;
+        height: 100vh;
+
+        @keyframes moveInRight{
+            0%{
+                opacity: 0;
+                transform: translateX(300px);
+            }
+
+            100%{
+                opacity: 1;
+                transform: translate(0);
+            }
+        }
+
+        .logo{
+            animation: moveInRight .5s ease-in;
+            margin-top: 70px
+        }
     }
 
     *{
@@ -17,6 +36,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     input{
+        outline: none;
+        
         &::placeholder {
             color: #dbdbdb;
             font-size: 19px;
@@ -47,7 +68,8 @@ const Container = styled.div`
     overflow-y: scroll;
     background-color: ${props => props.background};
     margin: 70px 0px 80px 0px;
-    height: 100vh;
+    height: 100%;
+    animation: moveInRight .4s ease-in;
 `;
 
 const FeatureMessage = styled.h2`
